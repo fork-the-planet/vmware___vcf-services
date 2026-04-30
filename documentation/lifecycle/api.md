@@ -29,7 +29,7 @@ Accept: application/json;version=41.0.0-alpha
 Authorization: Basic <base64(username:password)>
 ```
 
-The response header `x-vmware-vcloud-access-token` contains the token. Tokens are valid for the duration of the session — cache them rather than requesting a new token per call.
+The response header `x-vmware-vcloud-access-token` contains the token. Tokens are valid for the duration of the session - cache them rather than requesting a new token per call.
 
 ### Use the token
 
@@ -43,11 +43,11 @@ Authorization: Bearer <access-token>
 
 ## Endpoints
 
-### `POST /v2/vcf-services` — Create Service
+### `POST /v2/vcf-services` - Create Service
 
 Uploads and initialises a new VCF Service package. The service is created in `inactive` state by default.
 
-#### Request body — `CreateServiceRequest`
+#### Request body - `CreateServiceRequest`
 
 ```json
 {
@@ -63,7 +63,7 @@ Uploads and initialises a new VCF Service package. The service is created in `in
 | `name` | string | No | Service name; extracted from the package if omitted |
 | `version` | string | No | Service version; extracted from the package if omitted |
 
-#### Response — `200 OK` — `VcfService`
+#### Response - `200 OK` - `VcfService`
 
 ```json
 {
@@ -100,7 +100,7 @@ Poll `GET /v2/vcf-services/{id}` to track progress.
 
 ---
 
-### `GET /v2/vcf-services` — List Services
+### `GET /v2/vcf-services` - List Services
 
 Returns a paginated list of VCF Services.
 
@@ -110,14 +110,14 @@ Returns a paginated list of VCF Services.
 | :---- | :---- | :---- | :---- | :---- |
 | `page` | integer | **Yes** | 1 | Page to fetch (1-indexed, minimum 1) |
 | `pageSize` | integer | **Yes** | 25 | Results per page (0–128) |
-| `filter` | string | No | — | [FIQL](https://tools.ietf.org/html/draft-nottingham-atompub-fiql-00) filter expression |
-| `sortAsc` | string | No | — | Field name for ascending sort |
-| `sortDesc` | string | No | — | Field name for descending sort |
-| `metadata` | boolean | No | — | Include `PackageMetadata` in the response |
-| `package` | boolean | No | — | Include the Carvel `Package` definition in the response |
-| `state` | boolean | No | — | Include current resource state and errors |
-| `inventory` | boolean | No | — | Include inventory data |
-| `signatures` | boolean | No | — | Include full signature details; when omitted only `isValid` and `validationTime` are returned |
+| `filter` | string | No | - | [FIQL](https://tools.ietf.org/html/draft-nottingham-atompub-fiql-00) filter expression |
+| `sortAsc` | string | No | - | Field name for ascending sort |
+| `sortDesc` | string | No | - | Field name for descending sort |
+| `metadata` | boolean | No | - | Include `PackageMetadata` in the response |
+| `package` | boolean | No | - | Include the Carvel `Package` definition in the response |
+| `state` | boolean | No | - | Include current resource state and errors |
+| `inventory` | boolean | No | - | Include inventory data |
+| `signatures` | boolean | No | - | Include full signature details; when omitted only `isValid` and `validationTime` are returned |
 
 #### FIQL filter examples
 
@@ -127,7 +127,7 @@ vendor==broadcom;status==Healthy
 name==*arcturus*
 ```
 
-#### Response — `200 OK` — `VcfServiceResultSet`
+#### Response - `200 OK` - `VcfServiceResultSet`
 
 ```json
 {
@@ -155,7 +155,7 @@ Each item in `values` is a `VcfServiceWithExtras` object (see [Schemas](#schemas
 
 ---
 
-### `GET /v2/vcf-services/{id}` — Get Service
+### `GET /v2/vcf-services/{id}` - Get Service
 
 Returns full information about a specific service.
 
@@ -169,13 +169,13 @@ Returns full information about a specific service.
 
 Same optional flags as List Services: `metadata`, `package`, `state`, `inventory`, `signatures`.
 
-#### Response — `200 OK` — `VcfServiceWithExtras`
+#### Response - `200 OK` - `VcfServiceWithExtras`
 
-See [Schemas — VcfServiceWithExtras](#vcfservicewithextras).
+See [Schemas - VcfServiceWithExtras](#vcfservicewithextras).
 
 ---
 
-### `PUT /v2/vcf-services/{id}` — Update Service
+### `PUT /v2/vcf-services/{id}` - Update Service
 
 Replaces the entire service representation. All required fields must be provided. Returns `202 Accepted`.
 
@@ -185,7 +185,7 @@ Replaces the entire service representation. All required fields must be provided
 | :---- | :---- | :---- | :---- | :---- |
 | `signatures` | boolean | No | false | Include full signature details in the response |
 
-#### Request body — `UpdateServiceRequest`
+#### Request body - `UpdateServiceRequest`
 
 ```json
 {
@@ -215,7 +215,7 @@ Replaces the entire service representation. All required fields must be provided
 | Field | Type | Required | Description |
 | :---- | :---- | :---- | :---- |
 | `id` | string | **Yes** | Service URN |
-| `values` | `Values` | **Yes** | Overlay values (see [Schemas — Values](#values)) |
+| `values` | `Values` | **Yes** | Overlay values (see [Schemas - Values](#values)) |
 | `lifecycleState` | string | **Yes** | `active`, `inactive`, `paused`, or `decommissioned` |
 | `reconfigure` | `Reconfigure` | No | Reconfiguration event triggers |
 | `accepted` | object | No | EULA, signature, and access grant acceptance |
@@ -225,7 +225,7 @@ Replaces the entire service representation. All required fields must be provided
 
 ---
 
-### `PATCH /v2/vcf-services/{id}` — Partial Update
+### `PATCH /v2/vcf-services/{id}` - Partial Update
 
 Partially updates a service. Only fields provided in the request body are modified. Returns `202 Accepted`.
 
@@ -235,7 +235,7 @@ Partially updates a service. Only fields provided in the request body are modifi
 | :---- | :---- | :---- | :---- | :---- |
 | `signatures` | boolean | No | false | Include full signature details in the response |
 
-#### Request body — `PatchServiceRequest`
+#### Request body - `PatchServiceRequest`
 
 All fields are optional. Omitted fields are not changed.
 
@@ -322,7 +322,7 @@ See [Upgrade](upgrade.md) for the full upgrade workflow.
 
 ---
 
-### `DELETE /v2/vcf-services/{id}` — Delete Service
+### `DELETE /v2/vcf-services/{id}` - Delete Service
 
 Marks the service for deletion. The controller cleans up all Custom Resources (honouring finalizers) and then removes the service entity. Returns `202 Accepted`; deletion is asynchronous.
 
@@ -334,11 +334,11 @@ Marks the service for deletion. The controller cleans up all Custom Resources (h
 
 ---
 
-### `GET /v2/vcf-services/{id}/state` — Get Service State
+### `GET /v2/vcf-services/{id}/state` - Get Service State
 
 Returns the current status of every Custom Resource managed by the service plus any structured error details.
 
-#### Response — `200 OK` — `State`
+#### Response - `200 OK` - `State`
 
 ```json
 {
@@ -372,11 +372,11 @@ Returns the current status of every Custom Resource managed by the service plus 
 
 ---
 
-### `GET /v2/vcf-services/{id}/inventory` — Get Inventory
+### `GET /v2/vcf-services/{id}/inventory` - Get Inventory
 
 Returns the live inventory used for rendering service values.
 
-#### Response — `200 OK` — `Inventory`
+#### Response - `200 OK` - `Inventory`
 
 ```json
 {
@@ -410,13 +410,13 @@ Returns the live inventory used for rendering service values.
 
 ---
 
-### `GET /v2/vcf-services/{id}/metadata` — Get Package Metadata
+### `GET /v2/vcf-services/{id}/metadata` - Get Package Metadata
 
 Returns the `PackageMetadata` from the service bundle as a JSON object (display name, description, icon, provider).
 
 ---
 
-### `GET /v2/vcf-services/{id}/package` — Get Package Definition
+### `GET /v2/vcf-services/{id}/package` - Get Package Definition
 
 Returns the Carvel `Package` CR YAML from the bundle, including the OpenAPI v3 values schema.
 
@@ -424,7 +424,7 @@ Response `Content-Type: application/yaml`.
 
 ---
 
-### `POST /v2/vcf-services/{id}/render-effective-values` — Render Effective Values
+### `POST /v2/vcf-services/{id}/render-effective-values` - Render Effective Values
 
 Renders the final merged YAML values that would be used for installation after applying all overlay layers. Use this to preview and validate configuration before activation or update.
 
@@ -434,7 +434,7 @@ Renders the final merged YAML values that would be used for installation after a
 | :---- | :---- | :---- | :---- |
 | `expanded` | boolean | No | Include schema default values in the output |
 
-#### Request body — `Values`
+#### Request body - `Values`
 
 ```json
 {
@@ -464,7 +464,7 @@ Renders the final merged YAML values that would be used for installation after a
 
 All overlay fields are base64-encoded YAML strings. Use the inventory from `GET /inventory` for accurate rendering.
 
-#### Response — `200 OK` — `application/yaml`
+#### Response - `200 OK` - `application/yaml`
 
 Returns rendered YAML with all overlays applied, e.g.:
 
@@ -485,29 +485,29 @@ regions:
 
 ---
 
-### `POST /v2/vcf-services/{id}/render-resources` — Render Resources
+### `POST /v2/vcf-services/{id}/render-resources` - Render Resources
 
 Renders the Kubernetes Custom Resources that will be created when the service is activated. Use this to preview exactly which CRs the Service Manager will apply.
 
-#### Request body — `Values`
+#### Request body - `Values`
 
 Same structure as `render-effective-values`.
 
-#### Response — `200 OK` — `application/yaml`
+#### Response - `200 OK` - `application/yaml`
 
 Returns the rendered CR manifests as YAML.
 
 ---
 
-### `POST /v2/vcf-services/{id}/render-access-grants` — Render Access Grants
+### `POST /v2/vcf-services/{id}/render-access-grants` - Render Access Grants
 
 Returns the access grants required by the service. The object returned by this endpoint must be used verbatim as `accepted.accessGrants` in any PUT or PATCH request that activates the service.
 
-#### Request body — `Values`
+#### Request body - `Values`
 
 Same structure as `render-effective-values`.
 
-#### Response — `200 OK` — `AccessGrants`
+#### Response - `200 OK` - `AccessGrants`
 
 ```json
 {
@@ -571,7 +571,7 @@ Extends `VcfService` with optional fields included when the corresponding query 
 | `inactive` | Service registered but not running (default after creation). CRs are not applied. |
 | `active` | Service running; controllers reconcile its CRs against target systems |
 | `paused` | Reconciliation suspended; controllers skip processing |
-| `decommissioned` | Deletion triggered; cleanup in progress (terminal — set via DELETE) |
+| `decommissioned` | Deletion triggered; cleanup in progress (terminal - set via DELETE) |
 
 ### Status values
 
@@ -604,10 +604,10 @@ Extends `VcfService` with optional fields included when the corresponding query 
 
 | Field | Type | Description |
 | :---- | :---- | :---- |
-| `platformOverlay` | string | Base64-encoded YAML — provider scoping filter |
-| `vendorOverlay` | string | Base64-encoded YAML — vendor transpiler output |
-| `userOverwrite` | string | Base64-encoded YAML — operator manual overrides |
-| `effective` | string | Base64-encoded YAML — final merged result (read-only) |
+| `platformOverlay` | string | Base64-encoded YAML - provider scoping filter |
+| `vendorOverlay` | string | Base64-encoded YAML - vendor transpiler output |
+| `userOverwrite` | string | Base64-encoded YAML - operator manual overrides |
+| `effective` | string | Base64-encoded YAML - final merged result (read-only) |
 
 ### `Values`
 
@@ -808,7 +808,7 @@ curl -s -X POST "${API}/vcf-services/${SERVICE_ID}/render-effective-values" \
 
 | Status | Description | Resolution |
 | :---- | :---- | :---- |
-| `Unhealthy` | One or more CRs in error | Inspect `GET /state` — check `errorDetails` |
+| `Unhealthy` | One or more CRs in error | Inspect `GET /state` - check `errorDetails` |
 | `Busy` | Operation in progress | Wait; resolves automatically |
 | `Unresolved` | Configuration incomplete | Accept EULA, signatures, and access grants, then activate |
 | `Maintenance` | Upgrade in progress | Wait for upgrade to complete (see [Upgrade](upgrade.md)) |
@@ -819,16 +819,16 @@ curl -s -X POST "${API}/vcf-services/${SERVICE_ID}/render-effective-values" \
 ## Best Practices
 
 - Use `PATCH` instead of `PUT` for routine updates to avoid accidentally clearing fields.
-- Always use the access grants object returned by `POST /render-access-grants` without modification — any deviation prevents activation.
+- Always use the access grants object returned by `POST /render-access-grants` without modification - any deviation prevents activation.
 - Preview configuration with `POST /render-effective-values` before activating or updating.
-- Specify only the query parameters you need (`state`, `metadata`, etc.) — omitting them reduces response size and latency.
+- Specify only the query parameters you need (`state`, `metadata`, etc.) - omitting them reduces response size and latency.
 - Cache access tokens for the duration of your automation run; do not request a new token per API call.
 - Implement retry logic with exponential backoff for `Busy` states and transient 5xx errors.
 - Use `labels` and `locations` to organise services for efficient FIQL filtering in large deployments.
 
 ## Related Documents
 
-- [VCF Service Overview](vcf-service-overview.md) — lifecycle states and service architecture
-- [Upgrade](upgrade.md) — upgrade, rollback, and deletion workflows
-- [Packaging and Build](packaging-and-build.md) — how to build the service tarball supplied to `source`
-- [Extensions Overview](../extensions/element-types-overview.md) — Custom Resource types managed by the service engine
+- [VCF Service Overview](vcf-service-overview.md) - lifecycle states and service architecture
+- [Upgrade](upgrade.md) - upgrade, rollback, and deletion workflows
+- [Packaging and Build](packaging-and-build.md) - how to build the service tarball supplied to `source`
+- [Extensions Overview](../extensions/element-types-overview.md) - Custom Resource types managed by the service engine

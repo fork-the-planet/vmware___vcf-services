@@ -1,6 +1,6 @@
 # Role
 
-A `Role` creates a VCF Automation role scoped to a single organisation — typically the provider organisation. It is the building block for granting a [VcfaServiceAccount](vcfa-service-account.md) the permissions it needs to call VCF Automation APIs on behalf of the service.
+A `Role` creates a VCF Automation role scoped to a single organisation - typically the provider organisation. It is the building block for granting a [VcfaServiceAccount](vcfa-service-account.md) the permissions it needs to call VCF Automation APIs on behalf of the service.
 
 ## When to Use
 
@@ -46,15 +46,15 @@ Rights can be expressed as:
 CR created
     │
     ▼
-Busy — creating role in the target organisation in VCF Automation
+Busy - creating role in the target organisation in VCF Automation
     │
     ▼
-Healthy — role created, externalId populated
+Healthy - role created, externalId populated
     │
     ├─ rights updated
     │       │
     │       ▼
-    │   Busy — updating role rights
+    │   Busy - updating role rights
     │       │
     │       ▼
     │   Healthy
@@ -62,7 +62,7 @@ Healthy — role created, externalId populated
     └─ CR deleted
             │
             ▼
-        Busy — removing role from VCF Automation
+        Busy - removing role from VCF Automation
             │
             ▼
         CR removed

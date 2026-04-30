@@ -1,6 +1,6 @@
 # Overlay
 
-An `Overlay` collects runtime values — from literal constants or from other Kubernetes resources — and applies a [ytt](https://carvel.dev/ytt/) transformation to the spec of a target CR. This enables dynamic configuration injection without hardcoding values that are only known after other resources have been deployed (for example, injecting the external IP address of a deployed service into another service's configuration values).
+An `Overlay` collects runtime values - from literal constants or from other Kubernetes resources - and applies a [ytt](https://carvel.dev/ytt/) transformation to the spec of a target CR. This enables dynamic configuration injection without hardcoding values that are only known after other resources have been deployed (for example, injecting the external IP address of a deployed service into another service's configuration values).
 
 ## When to Use
 
@@ -62,7 +62,7 @@ Each entry is an `OverlayDataItem` with exactly one of:
 | Field | Description |
 | :---- | :---- |
 | `value` | Literal string value used as-is |
-| `selector` | [PathSelector](element-types-overview.md#pathselector) — resolves the value from a Kubernetes resource field at runtime |
+| `selector` | [PathSelector](element-types-overview.md#pathselector) - resolves the value from a Kubernetes resource field at runtime |
 
 ### Overlay Template
 
@@ -119,12 +119,12 @@ The `overlay` label value must match the Overlay CR's own `services.vcfa.broadco
 Overlay CR created
     │
     ▼
-Busy — resolving data values
+Busy - resolving data values
     │  • Literal values: used immediately
     │  • Selector values: queried from cluster
     │  ↺ If any selector fails → remain Busy, retry every 10 s
     ▼
-Healthy — all values resolved
+Healthy - all values resolved
     │  Controller creates/updates Overlay Secret
     │  (contains: data.values JSON + data.overlay ytt template)
     │
@@ -136,10 +136,10 @@ Target CR detects Overlay Secret
     ├─ Source resource changes (e.g. IP changes)
     │       │
     │       ▼
-    │   Busy — re-resolving values
+    │   Busy - re-resolving values
     │       │  ↺ every 10 min (Healthy) or 10 s (Busy)
     │       ▼
-    │   Healthy — Overlay Secret updated, target re-reconciled
+    │   Healthy - Overlay Secret updated, target re-reconciled
     │
     └─ Overlay CR deleted
             │

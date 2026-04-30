@@ -49,19 +49,19 @@ When `allTenants` is `true`, `tenants` is ignored. When `allTenants` is `false`,
 CR created
     │
     ▼
-Busy — creating role in VCF Automation
+Busy - creating role in VCF Automation
     │  Resolving right identifiers
     ▼
-Busy — publishing role to tenant organisations per scope
+Busy - publishing role to tenant organisations per scope
     │
     ▼
-Healthy — role created, externalId populated,
+Healthy - role created, externalId populated,
           status.rights reflects resolved rights
     │
     ├─ rights or scope updated
     │       │
     │       ▼
-    │   Busy — updating role and re-publishing to tenants
+    │   Busy - updating role and re-publishing to tenants
     │       │
     │       ▼
     │   Healthy
@@ -69,7 +69,7 @@ Healthy — role created, externalId populated,
     └─ CR deleted
             │
             ▼
-        Busy — removing role from VCF Automation
+        Busy - removing role from VCF Automation
             │
             ▼
         CR removed

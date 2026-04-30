@@ -47,18 +47,18 @@ If `password` is omitted, the controller generates a random password and stores 
 CR created
     │
     ▼
-Busy — resolving password from selector (if configured)
+Busy - resolving password from selector (if configured)
     │  ↺ retries every 10 s until Secret exists
     ▼
-Busy — creating user account in vCenter
+Busy - creating user account in vCenter
     │  Assigning role and group memberships
     ▼
-Healthy — account active, externalId populated
+Healthy - account active, externalId populated
     │
     ├─ roleName or groups updated
     │       │
     │       ▼
-    │   Busy — updating account in vCenter
+    │   Busy - updating account in vCenter
     │       │
     │       ▼
     │   Healthy
@@ -66,7 +66,7 @@ Healthy — account active, externalId populated
     └─ CR deleted
             │
             ▼
-        Busy — removing account from vCenter
+        Busy - removing account from vCenter
             │
             ▼
         CR removed

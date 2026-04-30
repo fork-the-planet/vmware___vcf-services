@@ -9,7 +9,7 @@ A VCF Service is a Carvel package with specific constraints designed for VCF Aut
 - Custom Resources under the `services.vcfa.broadcom.com/v2` API group
 - Kubernetes `Secret` resources for configuration
 
-Each CR materialises a particular VCF extensibility element — either within VCF Automation, vCenter, or a Supervisor cluster. Supported CR kinds are: `SupervisorService`, `SupervisorRegistry`, `Overlay`, `GlobalRole`, `Role`, `RightBundle`, `VcfaServiceAccount`, `VcServiceAccount`, `ApiExtension`, `ApiExtensionProxy`, `RelyingParty`, `UserInterfacePlugin`, and `RdeBundle`.
+Each CR materialises a particular VCF extensibility element - either within VCF Automation, vCenter, or a Supervisor cluster. Supported CR kinds are: `SupervisorService`, `SupervisorRegistry`, `Overlay`, `GlobalRole`, `Role`, `RightBundle`, `VcfaServiceAccount`, `VcServiceAccount`, `ApiExtension`, `ApiExtensionProxy`, `RelyingParty`, `UserInterfacePlugin`, and `RdeBundle`.
 
 ---
 
@@ -19,7 +19,7 @@ Each CR materialises a particular VCF extensibility element — either within VC
 
 ```text
 <service-name>/
-  package.yml              # PackageMetadata + Package CRs (template — image URL resolved at build time)
+  package.yml              # PackageMetadata + Package CRs (template - image URL resolved at build time)
   config/
     values.yml             # ytt data values schema (#@data/values)
     vcf-service.yml        # Main entry point template
@@ -54,7 +54,7 @@ The `.values/render.yml` file must contain concrete values that activate **all**
 
 ### `package.yml` Example
 
-The source-tree `package.yml` contains both `PackageMetadata` and `Package` CRs. The `metadata.name`, `spec.refName`, `spec.version`, and `spec.template.spec.fetch[0].imgpkgBundle.image` fields are populated by the build process — they are left empty in the source tree.
+The source-tree `package.yml` contains both `PackageMetadata` and `Package` CRs. The `metadata.name`, `spec.refName`, `spec.version`, and `spec.template.spec.fetch[0].imgpkgBundle.image` fields are populated by the build process - they are left empty in the source tree.
 
 ```yaml
 ---
@@ -226,8 +226,8 @@ cosign sign \
 
 **Key parameters:**
 
-- **`--tlog-upload=false`** — Disables uploading to public transparency logs. Required for private corporate environments.
-- **`--timestamp-server-url`** — Highly recommended. Embeds an RFC 3161 timestamp so the service remains trusted on the Supervisor even after the signing certificate expires, as long as it was signed while the certificate was valid. Replace the example URL with your own corporate TSA if you use private PKI.
+- **`--tlog-upload=false`** - Disables uploading to public transparency logs. Required for private corporate environments.
+- **`--timestamp-server-url`** - Highly recommended. Embeds an RFC 3161 timestamp so the service remains trusted on the Supervisor even after the signing certificate expires, as long as it was signed while the certificate was valid. Replace the example URL with your own corporate TSA if you use private PKI.
 
 > **Note:** Container images for standard vSphere Pod workloads do not strictly require signatures for installation.
 
@@ -235,7 +235,7 @@ cosign sign \
 
 Confirm the signature was attached correctly before proceeding.
 
-**Using imgpkg** — look for an entry with `Type: Signature` and a `dev.sigstore.cosign/certificate` annotation:
+**Using imgpkg** - look for an entry with `Type: Signature` and a `dev.sigstore.cosign/certificate` annotation:
 
 ```shell
 imgpkg describe -b "${BUNDLE_REPO}@sha256:${DIGEST}"
@@ -303,7 +303,7 @@ Built-in services are delivered as part of the VCF Automation release itself. Th
 
 - Automatically registered as service cards in VCF Automation on startup
 - Validated through VCF Automation release pipelines
-- Compatible by default — no additional compatibility check required
+- Compatible by default - no additional compatibility check required
 - Available offline via the internal VCFA registry without any external connectivity
 
 Built-in services are the recommended path for core services that must be available in air-gapped environments from day one.
@@ -371,7 +371,7 @@ When a service is installed, VCF Service Manager constructs the effective instal
    └─► Produces the effective installation values passed to the package
 ```
 
-This multi-layer approach enables automatic value generation across multiple regions, multiple Supervisors per region, multiple tenants, and dynamic infrastructure changes — without requiring the vendor to know the topology at bundle authoring time.
+This multi-layer approach enables automatic value generation across multiple regions, multiple Supervisors per region, multiple tenants, and dynamic infrastructure changes - without requiring the vendor to know the topology at bundle authoring time.
 
 ### Inventory Document Structure
 
@@ -409,7 +409,7 @@ The transpiler (`.values/transpiler.yml`) receives this document under `data.val
 
 ### Bundle structure
 
-- Keep `config/` templates modular — one file per concern (e.g. `supervisor-service.yml`, `roles.yml`, `service-account.yml`).
+- Keep `config/` templates modular - one file per concern (e.g. `supervisor-service.yml`, `roles.yml`, `service-account.yml`).
 - Define a complete OpenAPIv3 `valuesSchema` in `package.yml`. Document all parameters with `description` fields and provide sensible defaults.
 - Include example values in `.values/values.yml` that cover all optional resources so `kbld` can lock every image at build time.
 - Keep transpiler logic simple and document the inventory-to-values mapping. Handle missing or nil inventory fields gracefully with fallback defaults.
@@ -431,13 +431,13 @@ The transpiler (`.values/transpiler.yml`) receives this document under `data.val
 ### Distribution
 
 - Use a consistent OCI image tagging scheme across all registries.
-- Maintain content-addressed digests in `images.yml` — never rely on mutable tags.
+- Maintain content-addressed digests in `images.yml` - never rely on mutable tags.
 - Test offline installation scenarios before shipping; verify all dependencies are included in the tarball.
 - Replicate bundles to regional registries to reduce pull latency during Supervisor installation.
 
 ## Related Documents
 
-- [VCF Service Overview](vcf-service-overview.md) — lifecycle states and architecture
-- [Filesystem Layout](filesystem-layout.md) — bundle and VCF Service tarball directory structure
-- [Extensions Overview](../extensions/element-types-overview.md) — all supported CR types
-- [Upgrade](upgrade.md) — post-installation lifecycle: upgrade, rollback, and deletion
+- [VCF Service Overview](vcf-service-overview.md) - lifecycle states and architecture
+- [Filesystem Layout](filesystem-layout.md) - bundle and VCF Service tarball directory structure
+- [Extensions Overview](../extensions/element-types-overview.md) - all supported CR types
+- [Upgrade](upgrade.md) - post-installation lifecycle: upgrade, rollback, and deletion

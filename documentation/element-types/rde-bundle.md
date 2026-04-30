@@ -35,25 +35,25 @@ The bundle artifact is a ZIP or OCI layer that contains RDE type definitions, in
 CR created
     │
     ▼
-Busy — pulling bundle artifact from OCI repository
+Busy - pulling bundle artifact from OCI repository
     │  ↺ retries with backoff if image is unavailable
     ▼
-Busy — registering RDE interfaces in VCF Automation
+Busy - registering RDE interfaces in VCF Automation
     │
     ▼
-Busy — registering RDE types
+Busy - registering RDE types
     │
     ▼
-Busy — registering behaviors (webhook, MQTT, FaaS)
+Busy - registering behaviors (webhook, MQTT, FaaS)
     │
     ▼
-Healthy — all types and interfaces registered,
+Healthy - all types and interfaces registered,
           vcdRdeTypes and vcdRdeInterfaces populated
     │
     ├─ image tag updated (new bundle version)
     │       │
     │       ▼
-    │   Busy — re-applying updated type/interface/behavior definitions
+    │   Busy - re-applying updated type/interface/behavior definitions
     │       │  (additive; existing RDE instances are preserved)
     │       ▼
     │   Healthy
@@ -61,7 +61,7 @@ Healthy — all types and interfaces registered,
     └─ CR deleted
             │
             ▼
-        Busy — de-registering types, interfaces, and behaviors
+        Busy - de-registering types, interfaces, and behaviors
             │  (only succeeds if no RDE instances exist for these types)
             ▼
         CR removed

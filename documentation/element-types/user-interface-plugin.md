@@ -45,21 +45,21 @@ When `allTenants` is `true` the plugin is visible to all tenant organisations. W
 CR created
     │
     ▼
-Busy — pulling plugin ZIP from OCI repository (spec.image)
+Busy - pulling plugin ZIP from OCI repository (spec.image)
     │  ↺ retries with backoff if image is unavailable
     ▼
-Busy — uploading plugin to VCF Automation
+Busy - uploading plugin to VCF Automation
     │  Validating plugin manifest and binary compatibility
     ▼
-Busy — applying scope (publishing to tenants)
+Busy - applying scope (publishing to tenants)
     │
     ▼
-Healthy — plugin active, externalId and sha populated
+Healthy - plugin active, externalId and sha populated
     │
     ├─ image tag updated (new version)
     │       │
     │       ▼
-    │   Busy — pulling new image, replacing plugin
+    │   Busy - pulling new image, replacing plugin
     │       │  (or adding alongside if allowMultipleVersions: true)
     │       ▼
     │   Healthy
@@ -67,7 +67,7 @@ Healthy — plugin active, externalId and sha populated
     ├─ scope updated
     │       │
     │       ▼
-    │   Busy — updating tenant visibility
+    │   Busy - updating tenant visibility
     │       │
     │       ▼
     │   Healthy
@@ -75,12 +75,12 @@ Healthy — plugin active, externalId and sha populated
     ├─ enabled set to false
     │       │
     │       ▼
-    │   Healthy — plugin disabled (hidden from portal)
+    │   Healthy - plugin disabled (hidden from portal)
     │
     └─ CR deleted
             │
             ▼
-        Busy — removing plugin from VCF Automation
+        Busy - removing plugin from VCF Automation
             │
             ▼
         CR removed

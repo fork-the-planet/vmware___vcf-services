@@ -14,7 +14,7 @@ A `SupervisorRegistry` configures a container image registry on a vSphere Superv
 | :---- | :---- | :---- | :---- |
 | `region` | string | Yes | VCF region name |
 | `supervisor` | string | Yes | Supervisor cluster name |
-| `endpoint` | string | Yes | Registry endpoint — hostname, `hostname:port`, or FQDN |
+| `endpoint` | string | Yes | Registry endpoint - hostname, `hostname:port`, or FQDN |
 | `certificates` | string | No | PEM-encoded CA certificate chain used to trust the registry TLS |
 | `username` | string | No | Registry username for authenticated pulls |
 | `password` | PasswordSelector | No | Registry password resolved from a Kubernetes Secret |
@@ -34,7 +34,7 @@ password:
     path: data.values.arcturusAdminPassword
 ```
 
-The `selector` is a [PathSelector](element-types-overview.md#pathselector) — it locates the Secret by label and extracts the value at the given JSONPath.
+The `selector` is a [PathSelector](element-types-overview.md#pathselector) - it locates the Secret by label and extracts the value at the given JSONPath.
 
 ## Status Fields
 
@@ -50,18 +50,18 @@ The `selector` is a [PathSelector](element-types-overview.md#pathselector) — i
 CR created
     │
     ▼
-Busy — resolving password from selector (if configured)
+Busy - resolving password from selector (if configured)
     │
     ▼
-Busy — registering registry endpoint with Supervisor
+Busy - registering registry endpoint with Supervisor
     │  (TLS certificates and credentials submitted to vCenter API)
     ▼
-Healthy — registry active on Supervisor, supervisorId populated
+Healthy - registry active on Supervisor, supervisorId populated
     │
     ├─ spec change detected (endpoint, certificates, or password updated)
     │       │
     │       ▼
-    │   Busy — updating registry registration on Supervisor
+    │   Busy - updating registry registration on Supervisor
     │       │
     │       ▼
     │   Healthy
@@ -69,7 +69,7 @@ Healthy — registry active on Supervisor, supervisorId populated
     └─ CR deleted
             │
             ▼
-        Busy — de-registering registry from Supervisor
+        Busy - de-registering registry from Supervisor
             │
             ▼
         CR removed

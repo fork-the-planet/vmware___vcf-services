@@ -7,7 +7,7 @@ A VCF Service is a self-contained unit of extensibility for VMware Cloud Foundat
 At its core a VCF Service is a [Carvel](https://carvel.dev/) package with a specific set of constraints:
 
 - It may only contain Kubernetes Custom Resources (CRs) from the `services.vcfa.broadcom.com/v2` API group, plus Kubernetes Secrets used for configuration.
-- Each CR in the package describes the desired state of one VCF Automation extensibility element — a Supervisor package, a UI plugin, a service account, an API endpoint, and so on.
+- Each CR in the package describes the desired state of one VCF Automation extensibility element - a Supervisor package, a UI plugin, a service account, an API endpoint, and so on.
 - The full list of supported CR kinds is documented in the [Extensions Overview](../extensions/element-types-overview.md).
 
 When a VCF Service is activated, the VCF Service Manager creates all the CRs declared in the package and a set of controllers continuously reconcile each CR against its target system until the service reaches a `Healthy` state.
@@ -120,6 +120,6 @@ regions:
 
 ## Related Documents
 
-- [Filesystem Layout](filesystem-layout.md) — bundle and service tarball directory structure
-- [Packaging and Build](packaging-and-build.md) — step-by-step build, package, and sign workflow
-- [Extensions Overview](../extensions/element-types-overview.md) — all supported CR types and common patterns
+- [Filesystem Layout](filesystem-layout.md) - bundle and service tarball directory structure
+- [Packaging and Build](packaging-and-build.md) - step-by-step build, package, and sign workflow
+- [Extensions Overview](../extensions/element-types-overview.md) - all supported CR types and common patterns

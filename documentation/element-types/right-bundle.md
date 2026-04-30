@@ -1,6 +1,6 @@
 # RightBundle
 
-A `RightBundle` groups a set of custom rights into a named bundle that organisational administrators can use to compose roles. Unlike [GlobalRole](global-role.md), a `RightBundle` is not automatically assigned to any role — it is a palette of rights made available to administrators for manual inclusion in their custom roles.
+A `RightBundle` groups a set of custom rights into a named bundle that organisational administrators can use to compose roles. Unlike [GlobalRole](global-role.md), a `RightBundle` is not automatically assigned to any role - it is a palette of rights made available to administrators for manual inclusion in their custom roles.
 
 ## When to Use
 
@@ -46,18 +46,18 @@ scope:
 CR created
     │
     ▼
-Busy — creating right bundle in VCF Automation
+Busy - creating right bundle in VCF Automation
     │  Resolving right identifiers
     ▼
-Busy — publishing bundle to tenant organisations per scope
+Busy - publishing bundle to tenant organisations per scope
     │
     ▼
-Healthy — bundle created, externalId populated
+Healthy - bundle created, externalId populated
     │
     ├─ rights or scope updated
     │       │
     │       ▼
-    │   Busy — updating bundle
+    │   Busy - updating bundle
     │       │
     │       ▼
     │   Healthy
@@ -65,7 +65,7 @@ Healthy — bundle created, externalId populated
     └─ CR deleted
             │
             ▼
-        Busy — removing bundle from VCF Automation
+        Busy - removing bundle from VCF Automation
             │
             ▼
         CR removed

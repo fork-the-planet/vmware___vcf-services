@@ -116,8 +116,8 @@ When a service is first activated the following sequence runs:
 
 The Service Manager supports two paths when creating resources:
 
-- **Create new** — resource does not exist on the target; it is created and ownership is declared.
-- **Adopt existing** — a compatible resource already exists; the Service Manager declares ownership, reconciles any configuration drift, and manages it going forward.
+- **Create new** - resource does not exist on the target; it is created and ownership is declared.
+- **Adopt existing** - a compatible resource already exists; the Service Manager declares ownership, reconciles any configuration drift, and manages it going forward.
 
 Adoption is used when onboarding existing Supervisor Services, UI Plugins, or RBAC roles that were configured outside of VCF Services.
 
@@ -429,7 +429,7 @@ Content-Type: application/json
 
 ## Related Documents
 
-- [VCF Service Overview](vcf-service-overview.md) — lifecycle states overview and distribution channels
-- [API Reference](api.md) — complete endpoint reference with request/response schemas
-- [Packaging and Build](packaging-and-build.md) — how to build the bundle tarball and Package CR YAML supplied to `source` during create/upgrade
-- [Element Types Overview](../element-types/element-types-overview.md) — Custom Resource types managed during install/upgrade/delete
+- [VCF Service Overview](vcf-service-overview.md) - lifecycle states overview and distribution channels
+- [API Reference](api.md) - complete endpoint reference with request/response schemas
+- [Packaging and Build](packaging-and-build.md) - how to build the bundle tarball and Package CR YAML supplied to `source` during create/upgrade
+- [Element Types Overview](../element-types/element-types-overview.md) - Custom Resource types managed during install/upgrade/delete

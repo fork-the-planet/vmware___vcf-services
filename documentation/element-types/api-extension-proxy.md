@@ -1,6 +1,6 @@
 # ApiExtensionProxy
 
-An `ApiExtensionProxy` configures VCF Automation as a transparent HTTP reverse proxy to a backend REST API. Unlike [ApiExtension](api-extension.md), no MQTT integration is required — VCF Automation simply forwards matching HTTP requests to the `rootUrl` and returns the backend's response to the caller. This is the preferred integration pattern for services that expose their own HTTP API or UI within the management network.
+An `ApiExtensionProxy` configures VCF Automation as a transparent HTTP reverse proxy to a backend REST API. Unlike [ApiExtension](api-extension.md), no MQTT integration is required - VCF Automation simply forwards matching HTTP requests to the `rootUrl` and returns the backend's response to the caller. This is the preferred integration pattern for services that expose their own HTTP API or UI within the management network.
 
 ## When to Use
 
@@ -32,7 +32,7 @@ urlMatchers:
 | Field | Description |
 | :---- | :---- |
 | `urlPattern` | Regular expression path pattern; must end with `.*` |
-| `urlScope` | `EXT_UI_PROVIDER` — provider portal; `EXT_UI_TENANT` — tenant portal; `EXT_API` — API layer |
+| `urlScope` | `EXT_UI_PROVIDER` - provider portal; `EXT_UI_TENANT` - tenant portal; `EXT_API` - API layer |
 
 A request to `https://<vcfa-host>/proxy/external-endpoint/ui/provider/arcturus/projects` is forwarded to `<rootUrl>/projects`.
 
@@ -54,15 +54,15 @@ When `enabled` is `false`, VCF Automation treats the proxy as if it does not exi
 CR created
     │
     ▼
-Busy — registering external endpoint in VCF Automation
+Busy - registering external endpoint in VCF Automation
     │  Registering URL matchers
     ▼
-Healthy — proxy active, externalId populated
+Healthy - proxy active, externalId populated
     │
     ├─ rootUrl, urlMatchers, or enabled updated
     │       │
     │       ▼
-    │   Busy — updating proxy registration
+    │   Busy - updating proxy registration
     │       │
     │       ▼
     │   Healthy
@@ -70,7 +70,7 @@ Healthy — proxy active, externalId populated
     └─ CR deleted
             │
             ▼
-        Busy — disabling and de-registering proxy
+        Busy - disabling and de-registering proxy
             │
             ▼
         CR removed

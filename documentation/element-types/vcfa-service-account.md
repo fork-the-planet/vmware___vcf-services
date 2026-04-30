@@ -47,24 +47,24 @@ The Secret must already exist before the CR is created, or the controller will r
 ## Lifecycle
 
 ```
-CR created (spec is locked immediately — immutable)
+CR created (spec is locked immediately - immutable)
     │
     ▼
-Busy — locating target Secret via selector
+Busy - locating target Secret via selector
     │  ↺ retries every 10 s until Secret exists
     ▼
-Busy — registering OAuth client in VCF Automation
+Busy - registering OAuth client in VCF Automation
     │  Assigning role: spec.roleName
     ▼
-Busy — writing credentials into target Secret
+Busy - writing credentials into target Secret
     │  (clientId, clientSecret, accessToken)
     ▼
-Healthy — account active, externalId populated
+Healthy - account active, externalId populated
     │
     └─ CR deleted
             │
             ▼
-        Busy — de-registering OAuth client from VCF Automation
+        Busy - de-registering OAuth client from VCF Automation
             │  Revoking credentials
             ▼
         Credentials removed from Secret

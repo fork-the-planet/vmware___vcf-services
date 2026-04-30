@@ -1,6 +1,6 @@
 # VCF Service Filesystem Layout
 
-A VCF Service is built from a **bundle** directory — the source tree you maintain in version control — and published as distribution artifacts. This document describes the bundle directory structure.
+A VCF Service is built from a **bundle** directory - the source tree you maintain in version control - and published as distribution artifacts. This document describes the bundle directory structure.
 
 ## Bundle Directory Structure
 
@@ -82,7 +82,7 @@ regions: []
 
 ### `.values/render.yml` Example
 
-`render.yml` provides concrete values used during the build. `kbld` renders all templates with these values to discover every image reference — including those inside optional configuration branches — before writing `.imgpkg/images.yml`. These values are **not** shipped inside the bundle or used at runtime.
+`render.yml` provides concrete values used during the build. `kbld` renders all templates with these values to discover every image reference - including those inside optional configuration branches - before writing `.imgpkg/images.yml`. These values are **not** shipped inside the bundle or used at runtime.
 
 ```yaml
 regions:
@@ -181,10 +181,10 @@ __system:
 
 The ytt templates in `config/` read from `data.values.__system.supervisorService` to construct the `SupervisorService` CR at runtime. Additional system values for UI plugins and RDE bundles are injected under `.__system.<key>` following the same pattern.
 
-This keeps all Supervisor Service package identity information out of the source tree — it is resolved at build time from the actual bundled artifact, not hard-coded by the service author.
+This keeps all Supervisor Service package identity information out of the source tree - it is resolved at build time from the actual bundled artifact, not hard-coded by the service author.
 
 ## Related Documents
 
-- [VCF Service Overview](vcf-service-overview.md) — conceptual introduction, lifecycle states, and distribution channels
-- [Packaging and Build](packaging-and-build.md) — step-by-step build, package, sign, and publish workflow
-- [Element Types Overview](../element-types/element-types-overview.md) — all supported CR types
+- [VCF Service Overview](vcf-service-overview.md) - conceptual introduction, lifecycle states, and distribution channels
+- [Packaging and Build](packaging-and-build.md) - step-by-step build, package, sign, and publish workflow
+- [Element Types Overview](../element-types/element-types-overview.md) - all supported CR types

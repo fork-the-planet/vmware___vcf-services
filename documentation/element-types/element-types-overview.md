@@ -1,6 +1,6 @@
 # Element Types Overview
 
-VCF Service Manager manages the lifecycle of a VCF Service by reconciling a set of Custom Resources (CRs). Each CR type maps to a distinct capability in the VCF Automation platform — from deploying packages on Supervisor clusters to registering UI plugins and creating service accounts.
+VCF Service Manager manages the lifecycle of a VCF Service by reconciling a set of Custom Resources (CRs). Each CR type maps to a distinct capability in the VCF Automation platform - from deploying packages on Supervisor clusters to registering UI plugins and creating service accounts.
 
 This section documents every CR available in API version `services.vcfa.broadcom.com/v2`, covering its purpose, spec fields, status fields, and lifecycle from a service author's perspective.
 

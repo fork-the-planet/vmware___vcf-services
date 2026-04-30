@@ -43,7 +43,7 @@ urlMatchers:
 | Field | Description |
 | :---- | :---- |
 | `urlPattern` | Regular expression path pattern; must end with `.*` |
-| `urlScope` | `EXT_UI_PROVIDER` — accessible to provider users; `EXT_UI_TENANT` — accessible to tenant users |
+| `urlScope` | `EXT_UI_PROVIDER` - accessible to provider users; `EXT_UI_TENANT` - accessible to tenant users |
 
 Registered URLs are reachable at:
 - Provider: `https://<vcfa-host>/proxy/external-endpoint/ui/provider/<urlPattern>`
@@ -64,19 +64,19 @@ Registered URLs are reachable at:
 CR created
     │
     ▼
-Busy — resolving token Secret via tokenConfig.selector
+Busy - resolving token Secret via tokenConfig.selector
     │  ↺ retries every 10 s until Secret exists
     ▼
-Busy — registering extension service in VCF Automation
+Busy - registering extension service in VCF Automation
     │  Registering URL matchers
     ▼
-Healthy — extension active, externalId populated,
+Healthy - extension active, externalId populated,
           extensionEndpoints reflect registered paths
     │
     ├─ urlMatchers updated
     │       │
     │       ▼
-    │   Busy — updating URL registrations
+    │   Busy - updating URL registrations
     │       │
     │       ▼
     │   Healthy
@@ -84,7 +84,7 @@ Healthy — extension active, externalId populated,
     └─ CR deleted
             │
             ▼
-        Busy — de-registering extension from VCF Automation
+        Busy - de-registering extension from VCF Automation
             │
             ▼
         CR removed

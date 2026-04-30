@@ -1,6 +1,6 @@
 # RelyingParty
 
-A `RelyingParty` registers an OAuth 2.0 relying party (client application) in the VCF Automation identity provider. This enables the service to participate in single sign-on (SSO) flows — users authenticated in VCF Automation can be seamlessly logged into the service using standard OAuth 2.0 authorization code flow.
+A `RelyingParty` registers an OAuth 2.0 relying party (client application) in the VCF Automation identity provider. This enables the service to participate in single sign-on (SSO) flows - users authenticated in VCF Automation can be seamlessly logged into the service using standard OAuth 2.0 authorization code flow.
 
 ## When to Use
 
@@ -49,21 +49,21 @@ data:
 CR created
     │
     ▼
-Busy — locating target Secret via selector
+Busy - locating target Secret via selector
     │  ↺ retries every 10 s until Secret exists
     ▼
-Busy — registering OAuth client in VCF Automation identity provider
+Busy - registering OAuth client in VCF Automation identity provider
     │
     ▼
-Busy — writing clientId (and clientSecret if confidential) into Secret
+Busy - writing clientId (and clientSecret if confidential) into Secret
     │
     ▼
-Healthy — relying party active, externalId populated
+Healthy - relying party active, externalId populated
     │
     ├─ redirectUris updated
     │       │
     │       ▼
-    │   Busy — updating redirect URI list
+    │   Busy - updating redirect URI list
     │       │
     │       ▼
     │   Healthy
@@ -71,7 +71,7 @@ Healthy — relying party active, externalId populated
     └─ CR deleted
             │
             ▼
-        Busy — de-registering OAuth client
+        Busy - de-registering OAuth client
             │
             ▼
         CR removed

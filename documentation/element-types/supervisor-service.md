@@ -88,21 +88,21 @@ The resolved values are stored in `status.readyConditions` and are available to 
 CR created
     │
     ▼
-Busy — resolving values, locating Supervisor Service Bundle
+Busy - resolving values, locating Supervisor Service Bundle
     │
     ▼
-Busy — registering Package + PackageMetadata with vCenter Supervisor API
+Busy - registering Package + PackageMetadata with vCenter Supervisor API
     │
     ▼
-Busy — polling readyConditions (if configured)
+Busy - polling readyConditions (if configured)
     │  ↺ every 10 s until all conditions resolve
     ▼
-Healthy — service running, externalId populated
+Healthy - service running, externalId populated
     │
     ├─ spec change detected (values hash mismatch)
     │       │
     │       ▼
-    │   Busy — re-applying updated values / package
+    │   Busy - re-applying updated values / package
     │       │
     │       ▼
     │   Healthy
@@ -110,7 +110,7 @@ Healthy — service running, externalId populated
     └─ CR deleted
             │
             ▼
-        Busy — unregistering service from vCenter
+        Busy - unregistering service from vCenter
             │
             ▼
         CR removed
