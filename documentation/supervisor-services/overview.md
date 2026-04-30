@@ -1,13 +1,4 @@
-# Supervisor Service Development Guide
-
-1. [Introduction](introduction.md) — What a Supervisor Service is, why build one, lifecycle, versioning, and packaging.
-2. [Authoring Supervisor Services](carvel/dev-guide.md) — Build bundles, PackageMetadata, and Package.
-   - [Environment-Aware Services](carvel/environment-aware.md) — SupervisorProperties and valuesSchema.
-   - [Private Registries](carvel/private-registry.md) — Placeholder secrets and imagePullSecrets.
-   - [Compatibility Checks](carvel/compatibility.md) — Version and capability constraints.
-3. [Image Signing and Verification](security/image-signing.md) — Sign with cosign; verify and distribute.
-
----
+# Supervisor Services Development Guide
 
 ## Introduction
 
