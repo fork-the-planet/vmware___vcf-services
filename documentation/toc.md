@@ -39,4 +39,9 @@
 			- [MQTT Behaviors](extensibility-platform/defined-entities/mqtt-behaviors.md)
 			- [Scheduled Behaviors](extensibility-platform/defined-entities/scheduled-behaviors.md)
 			- [No-Op Behaviors](extensibility-platform/defined-entities/no-op-behaviors.md)
-		
+- [Supervisor Services Overview](supervisor-services/overview.md)
+	- [Authoring Supervisor Services](supervisor-services/carvel/dev-guide.md)
+		- [Compatibility](supervisor-services/carvel/compatibility.md)
+		- [Environment-Aware Packages](supervisor-services/carvel/environment-aware.md)
+		- [Private Registry](supervisor-services/carvel/private-registry.md)
+	- [Image Signing](supervisor-services/security/image-signing.md)
